@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.surchx.transactionfeeapi.testsuite.AcceptanceTestSuite
+-------------------------------------------------------------------------------
+Tests run: 72, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 204.787 sec - in com.surchx.transactionfeeapi.testsuite.AcceptanceTestSuite

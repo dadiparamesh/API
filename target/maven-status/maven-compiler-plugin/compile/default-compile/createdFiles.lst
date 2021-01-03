@@ -1,0 +1,7 @@
+com\surchx\transactionfeeapi\dtos\TransactionFeeResponseDto.class
+com\surchx\transactionfeeapi\utilities\WebserviceClient.class
+com\surchx\transactionfeeapi\utilities\PropertiesLoader.class
+com\surchx\transactionfeeapi\constants\TestData.class
+com\surchx\transactionfeeapi\constants\AuthenticationTokens.class
+com\surchx\transactionfeeapi\dtos\HttpResponseDto.class
+com\surchx\transactionfeeapi\dtos\TransactionFeeRequestDto.class

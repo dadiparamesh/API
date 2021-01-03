@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Features</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" href="fontawesome-free-5.3.1-web/css/all.css">
+<link rel="stylesheet" href="fontawesome-free-5.3.1-web/css/v4-shims.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.css">
+<link rel="stylesheet" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.19/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.19/datatables.min.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.19/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.19/datatables.bootstrap4.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.19/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.19/datatables.min.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.19/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.19/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            var scenarioTable = $('.scenario-result-table').DataTable({
+
+                "order": [],
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                }
+            });
+
+            $('.example-table table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('.example-table-in-scenario table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('#evidence-table').DataTable(
+                    {
+                        searching: false,
+                        ordering: false,
+                        paging: false,
+                        info: false
+                    }
+            );
+
+
+            $(".scenario-docs .card-body table").wrap("<div class='table-responsive'></div>");
+
+            $("#requirements-tabs").tabs();
+            $("#test-tabs").tabs();
+
+            var requirementsTree = [{"text":"As a user","type":"feature","href":"d8770d9a4aeb0e1fbf28450574d4f9ef646780dd716d9d2067b2f31ca2e29330.html","nodes":[],"selectable":false,"tags":["","\u003cspan class\u003d\u0027feature-count\u0027\u003e12 scenarios\u003c/span\u003e"]}];
+
+            $('#tree').treeview({
+                data: requirementsTree,
+                enableLinks: true,
+                showTags: true,
+                expandIcon: "glyphicon glyphicon-folder-close",
+                collapseIcon: "glyphicon glyphicon-folder-open",
+                emptyIcon: "glyphicon glyphicon-book"
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".scenario-docs p").html(function () {
+                var text = $(this).text().trim().split(" ");
+                var first = text.shift();
+                return (text.length > 0 ? "<strong>" + first + "</strong> " : first) + text.join(" ");
+            });
+        });
+    </script>
+</head>
+
+<body class="results-page">
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">Transaction Fee Api</span>
+        </div>
+    </div>
+</div>
+
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+            <a href='index.html'>Home</a> > <a href="capabilities.html">Requirements</a>
+
+                > <a href="2275022a043e3da8cc6e09ac35e3348c2f4fd91fdc5dc8fe7bc91da1ce45c503.html">Coastlineproducts</a>
+                > <a href="ecbc92a5885a65d2953d7db389a0cba5eb6b3bd778e6afaee6db2c74d7eb70aa.html">Interchange Plus Scenarios</a>
+
+
+                > <span class="truncate-40">As A User</span>
+
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li >
+            <a href="index.html"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="dafb266f68444cb7f2451c923d70c1428ac45470c361842b818e6daa9bcd4fa8.html"><i class="fa fa-comments-o"></i> Themes</a>
+        </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="fa fa-comments-o"></i> Capabilities</a>
+        </li>
+        <li class="active">
+            <a href="#"><i class="fa fa-comments-o"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 19-02-2019 11:33</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+    <div id="beforetable"></div>
+    <div id="results-dashboard">
+        <div class="table">
+                <div class=row">
+                    <div class="col-sm-12">
+                        <div>
+                            <div clas="table">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                    <span>
+                                            <h2><i class="fa fa-book"></i> Feature:  As A User</h2>
+                                        </span>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="requirementNarrativeTitle">
+                                I want to see a successful call to the TransactionFee API<br />
+So that I can verify the interchange plus calculations are being calculated in a right way
+                            </div>
+
+                        </div>
+                    </div>
+
+
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <!-- Requirements result tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" href="#specs"><i class="fas fa-comments"></i> Specifications</a>
+                        </li>
+                        <li>
+                            <a data-toggle="tab" href="#results"><i class="fas fa-tachometer-alt"></i> Test Results</a>
+                        </li>
+                    </ul>
+
+                    <!-- Specifications and Results tabs -->
+                    <div class="card border">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div id="specs" class="tab-pane fade in active">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+
+
+                                            <h3>Scenarios</h3>
+
+                                            <div id="toc">
+                                                <table class="table" id="toc-table">
+                                                        <tr>
+                                                            <td style="width:99%;" class="toc-title"><a href="#f02e1a8832853471a40a30e40fe944b8d56d6db087eb929d6d2aa03af731bf8e">1 - Verify Transaction Fee API call with different types of VISA cards with Paysafe7861 processor</a>
+                                                                     (10 examples)
+
+                                                            </td>
+                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:99%;" class="toc-title"><a href="#c6d9f1a50c0c5d823445d561cf9eb2258140f4f3e7d71f6f57025870f1ec28bc">2 - Verify Transaction Fee API call with different types of VISA cards with Paysafe9909 processor</a>
+                                                                     (10 examples)
+
+                                                            </td>
+                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:99%;" class="toc-title"><a href="#6f674deead8e6c099c9e95b3073069d45a6b6fc006ca8834f9be0ff2627b08a9">3 - Verify Transaction Fee API call with different types of VISA cards with Titanium4994 processor</a>
+                                                                     (10 examples)
+
+                                                            </td>
+                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:99%;" class="toc-title"><a href="#04204f1e9d17ce4b7f6576fd7028397fa32da3cc9db458379db008b507aabe89">4 - Verify Transaction Fee API call with different types of MASTERCARD with PAYSAFE7861 processor</a>
+                                                                     (8 examples)
+
+                                                            </td>
+                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:99%;" class="toc-title"><a href="#88d25fa0321a0bbd47ca8b5b7274d5b89c8dce52f3d79561c34c9c029cb0f9eb">5 - Verify Transaction Fee API call with different types of MASTERCARD with PAYSAFE9909 processor</a>
+                                                                     (8 examples)
+
+                                                            </td>
+                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:99%;" class="toc-title"><a href="#66e02a4a6989f6e79a4df5980b533875cfa09bb23e680e2fef4988e2e4f57ef0">6 - Verify Transaction Fee API call with different types of MASTERCARD with Titanium4994 processor</a>
+                                                                     (8 examples)
+
+                                                            </td>
+                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:99%;" class="toc-title"><a href="#c3ba888fd052e965fbf3cc67b67fe6d2d1084f374da9275cb2260f84e932eee6">7 - Verify Transaction Fee API call with different types of DISCOVER with PAYSAFE7861 processor</a>
+                                                                     (4 examples)
+
+                                                            </td>
+                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:99%;" class="toc-title"><a href="#94bb3bf6b316938ee3691ebfae205ad35718a8a89d706cd0d1f1c814b2501b95">8 - Verify Transaction Fee API call with different types of DISCOVER with PAYSAFE9909 processor</a>
+                                                                     (4 examples)
+
+                                                            </td>
+                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:99%;" class="toc-title"><a href="#c2df7c2365b12687558590ab05c0a2cbd023b73d19fafe1778f5f1ac41b89f0e">9 - Verify Transaction Fee API call with different types of DISCOVER with Titanium4994 processor</a>
+                                                                     (4 examples)
+
+                                                            </td>
+                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:99%;" class="toc-title"><a href="#703093b450741794a2a8f139906eaf25bc37f9a9efa26d192dee6cc76cc1d880">10 - Verify Transaction Fee API call with different types of AMEX with PAYSAFE7861 processor</a>
+                                                                     (2 examples)
+
+                                                            </td>
+                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:99%;" class="toc-title"><a href="#5e20100459d07db85cf1c3f8efba2ceb2c4e8b5aead311626b64be946d9a8257">11 - Verify Transaction Fee API call with different types of AMEX with PAYSAFE9909 processor</a>
+                                                                     (2 examples)
+
+                                                            </td>
+                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:99%;" class="toc-title"><a href="#76f3ec9b850f34ecc33fef44da2cb29b1a9f42f6c34bac3caa345c000c889f41">12 - Verify Transaction Fee API call with different types of AMEX with Titanium4994 processor</a>
+                                                                     (2 examples)
+
+                                                            </td>
+                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                </table>
+
+                                            </div>
+
+                                            <h3>Scenario details</h3>
+
+
+                                                <div class="scenario-docs card" id="f02e1a8832853471a40a30e40fe944b8d56d6db087eb929d6d2aa03af731bf8e">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                1 - Verify Transaction Fee API call with different types of VISA cards with Paysafe7861 processor
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="scenario-report-badges">
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='15e6dd80e12bbc6e1c6342972647824823212bdedf7af68906c939b576bfe450.html' class='badge more-details'>Test Results</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>When I call Transaction Fee API with the following data</p>
+<table>
+<thead>
+<tr><th>Merchant</th><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th></tr>
+</thead>
+<tbody>
+<tr><td>Coastline</td><td>{NICN}</td><td>{Amount}</td><td>{Region}</td><td>{Processor}</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>Then Verify the response is as follows</p>
+<table>
+<thead>
+<tr><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th></tr>
+</thead>
+<tbody>
+<tr><td>{HttpStatusCode}</td><td>{TransactionFee}</td><td>{Fee}</td><td>{Sid}</td><td>{Message}</td></tr>
+</tbody>
+</table>
+</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>VisaTraditionalRewards</td><td>108.00</td><td>Chargeable state</td><td>Paysafe7861</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaNonRewards</td><td>108.00</td><td>Chargeable state</td><td>Paysafe7861</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaSignature</td><td>108.00</td><td>Chargeable state</td><td>Paysafe7861</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaSignaturePreferred</td><td>108.00</td><td>Chargeable state</td><td>Paysafe7861</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaCorporate</td><td>108.00</td><td>Chargeable state</td><td>Paysafe7861</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaTraditionalRewards</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe7861</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaNonRewards</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe7861</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaSignature</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe7861</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaSignaturePreferred</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe7861</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaCorporate</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe7861</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="c6d9f1a50c0c5d823445d561cf9eb2258140f4f3e7d71f6f57025870f1ec28bc">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                2 - Verify Transaction Fee API call with different types of VISA cards with Paysafe9909 processor
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="scenario-report-badges">
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='3d5d504627a14d137c860dc96c5a248a74b84821a01cb49844038f9dede205f6.html' class='badge more-details'>Test Results</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>When I call Transaction Fee API with the following data</p>
+<table>
+<thead>
+<tr><th>Merchant</th><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th></tr>
+</thead>
+<tbody>
+<tr><td>Coastline</td><td>{NICN}</td><td>{Amount}</td><td>{Region}</td><td>{Processor}</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>Then Verify the response is as follows</p>
+<table>
+<thead>
+<tr><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th></tr>
+</thead>
+<tbody>
+<tr><td>{HttpStatusCode}</td><td>{TransactionFee}</td><td>{Fee}</td><td>{Sid}</td><td>{Message}</td></tr>
+</tbody>
+</table>
+</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>VisaTraditionalRewards</td><td>108.00</td><td>Chargeable state</td><td>Paysafe9909</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaNonRewards</td><td>108.00</td><td>Chargeable state</td><td>Paysafe9909</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaSignature</td><td>108.00</td><td>Chargeable state</td><td>Paysafe9909</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaSignaturePreferred</td><td>108.00</td><td>Chargeable state</td><td>Paysafe9909</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaCorporate</td><td>108.00</td><td>Chargeable state</td><td>Paysafe9909</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaTraditionalRewards</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe9909</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaNonRewards</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe9909</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaSignature</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe9909</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaSignaturePreferred</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe9909</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaCorporate</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe9909</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="6f674deead8e6c099c9e95b3073069d45a6b6fc006ca8834f9be0ff2627b08a9">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                3 - Verify Transaction Fee API call with different types of VISA cards with Titanium4994 processor
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="scenario-report-badges">
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='3b6cf8145929aa14260b5e36d683673c40d2cf3ec5a10006718c7fb8cfacef82.html' class='badge more-details'>Test Results</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>When I call Transaction Fee API with the following data</p>
+<table>
+<thead>
+<tr><th>Merchant</th><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th></tr>
+</thead>
+<tbody>
+<tr><td>Coastline</td><td>{NICN}</td><td>{Amount}</td><td>{Region}</td><td>{Processor}</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>Then Verify the response is as follows</p>
+<table>
+<thead>
+<tr><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th></tr>
+</thead>
+<tbody>
+<tr><td>{HttpStatusCode}</td><td>{TransactionFee}</td><td>{Fee}</td><td>{Sid}</td><td>{Message}</td></tr>
+</tbody>
+</table>
+</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>VisaTraditionalRewards</td><td>108.00</td><td>Chargeable state</td><td>Titanium4994</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaNonRewards</td><td>108.00</td><td>Chargeable state</td><td>Titanium4994</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaSignature</td><td>108.00</td><td>Chargeable state</td><td>Titanium4994</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaSignaturePreferred</td><td>108.00</td><td>Chargeable state</td><td>Titanium4994</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaCorporate</td><td>108.00</td><td>Chargeable state</td><td>Titanium4994</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaTraditionalRewards</td><td>108.00</td><td>Non-Chargeable state</td><td>Titanium4994</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaNonRewards</td><td>108.00</td><td>Non-Chargeable state</td><td>Titanium4994</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaSignature</td><td>108.00</td><td>Non-Chargeable state</td><td>Titanium4994</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaSignaturePreferred</td><td>108.00</td><td>Non-Chargeable state</td><td>Titanium4994</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>VisaCorporate</td><td>108.00</td><td>Non-Chargeable state</td><td>Titanium4994</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="04204f1e9d17ce4b7f6576fd7028397fa32da3cc9db458379db008b507aabe89">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                4 - Verify Transaction Fee API call with different types of MASTERCARD with PAYSAFE7861 processor
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="scenario-report-badges">
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='5815462ec0aacca50407b927bfcc2edbe00bebafd0e21198a7709d153e9d1247.html' class='badge more-details'>Test Results</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>When I call Transaction Fee API with the following data</p>
+<table>
+<thead>
+<tr><th>Merchant</th><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th></tr>
+</thead>
+<tbody>
+<tr><td>Coastline</td><td>{NICN}</td><td>{Amount}</td><td>{Region}</td><td>{Processor}</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>Then Verify the response is as follows</p>
+<table>
+<thead>
+<tr><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th></tr>
+</thead>
+<tbody>
+<tr><td>{HttpStatusCode}</td><td>{TransactionFee}</td><td>{Fee}</td><td>{Sid}</td><td>{Message}</td></tr>
+</tbody>
+</table>
+</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>MastercardCoreValue</td><td>108.00</td><td>Chargeable state</td><td>Paysafe7861</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardWorld</td><td>108.00</td><td>Chargeable state</td><td>Paysafe7861</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardBusinessCore</td><td>108.00</td><td>Chargeable state</td><td>Paysafe7861</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardBusinessWorldElite</td><td>108.00</td><td>Chargeable state</td><td>Paysafe7861</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardCoreValue</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe7861</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardWorld</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe7861</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardBusinessCore</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe7861</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardBusinessWorldElite</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe7861</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="88d25fa0321a0bbd47ca8b5b7274d5b89c8dce52f3d79561c34c9c029cb0f9eb">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                5 - Verify Transaction Fee API call with different types of MASTERCARD with PAYSAFE9909 processor
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="scenario-report-badges">
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='34bfba948a142599b6fca5718efb43db960db12af678cf9cb94224721bf234a4.html' class='badge more-details'>Test Results</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>When I call Transaction Fee API with the following data</p>
+<table>
+<thead>
+<tr><th>Merchant</th><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th></tr>
+</thead>
+<tbody>
+<tr><td>Coastline</td><td>{NICN}</td><td>{Amount}</td><td>{Region}</td><td>{Processor}</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>Then Verify the response is as follows</p>
+<table>
+<thead>
+<tr><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th></tr>
+</thead>
+<tbody>
+<tr><td>{HttpStatusCode}</td><td>{TransactionFee}</td><td>{Fee}</td><td>{Sid}</td><td>{Message}</td></tr>
+</tbody>
+</table>
+</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>MastercardCoreValue</td><td>108.00</td><td>Chargeable state</td><td>Paysafe9909</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardWorld</td><td>108.00</td><td>Chargeable state</td><td>Paysafe9909</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardBusinessCore</td><td>108.00</td><td>Chargeable state</td><td>Paysafe9909</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardBusinessWorldElite</td><td>108.00</td><td>Chargeable state</td><td>Paysafe9909</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardCoreValue</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe9909</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardWorld</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe9909</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardBusinessCore</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe9909</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardBusinessWorldElite</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe9909</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="66e02a4a6989f6e79a4df5980b533875cfa09bb23e680e2fef4988e2e4f57ef0">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                6 - Verify Transaction Fee API call with different types of MASTERCARD with Titanium4994 processor
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="scenario-report-badges">
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='714cdcc7f1792f28a8cc211688dff4770ee59a4f026c589d3bab1cf9349de05f.html' class='badge more-details'>Test Results</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>When I call Transaction Fee API with the following data</p>
+<table>
+<thead>
+<tr><th>Merchant</th><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th></tr>
+</thead>
+<tbody>
+<tr><td>Coastline</td><td>{NICN}</td><td>{Amount}</td><td>{Region}</td><td>{Processor}</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>Then Verify the response is as follows</p>
+<table>
+<thead>
+<tr><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th></tr>
+</thead>
+<tbody>
+<tr><td>{HttpStatusCode}</td><td>{TransactionFee}</td><td>{Fee}</td><td>{Sid}</td><td>{Message}</td></tr>
+</tbody>
+</table>
+</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>MastercardCoreValue</td><td>108.00</td><td>Chargeable state</td><td>Titanium4994</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardWorld</td><td>108.00</td><td>Chargeable state</td><td>Titanium4994</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardBusinessCore</td><td>108.00</td><td>Chargeable state</td><td>Titanium4994</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardBusinessWorldElite</td><td>108.00</td><td>Chargeable state</td><td>Titanium4994</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardCoreValue</td><td>108.00</td><td>Non-Chargeable state</td><td>Titanium4994</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardWorld</td><td>108.00</td><td>Non-Chargeable state</td><td>Titanium4994</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardBusinessCore</td><td>108.00</td><td>Non-Chargeable state</td><td>Titanium4994</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>MastercardBusinessWorldElite</td><td>108.00</td><td>Non-Chargeable state</td><td>Titanium4994</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="c3ba888fd052e965fbf3cc67b67fe6d2d1084f374da9275cb2260f84e932eee6">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                7 - Verify Transaction Fee API call with different types of DISCOVER with PAYSAFE7861 processor
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="scenario-report-badges">
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='8129b1bf99fd6c1b7a06c5515a23d890d61441a557b28d40d06183f608fb6c20.html' class='badge more-details'>Test Results</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>When I call Transaction Fee API with the following data</p>
+<table>
+<thead>
+<tr><th>Merchant</th><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th></tr>
+</thead>
+<tbody>
+<tr><td>Coastline</td><td>{NICN}</td><td>{Amount}</td><td>{Region}</td><td>{Processor}</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>Then Verify the response is as follows</p>
+<table>
+<thead>
+<tr><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th></tr>
+</thead>
+<tbody>
+<tr><td>{HttpStatusCode}</td><td>{TransactionFee}</td><td>{Fee}</td><td>{Sid}</td><td>{Message}</td></tr>
+</tbody>
+</table>
+</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>DiscoverCore</td><td>108.00</td><td>Chargeable state</td><td>Paysafe7861</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>DiscoverRewards</td><td>108.00</td><td>Chargeable state</td><td>Paysafe7861</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>DiscoverCore</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe7861</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>DiscoverRewards</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe7861</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="94bb3bf6b316938ee3691ebfae205ad35718a8a89d706cd0d1f1c814b2501b95">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                8 - Verify Transaction Fee API call with different types of DISCOVER with PAYSAFE9909 processor
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="scenario-report-badges">
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='3eb8fde209a4d2833e2662fa74b84947302bd568184ee079306d71b5b8efc090.html' class='badge more-details'>Test Results</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>When I call Transaction Fee API with the following data</p>
+<table>
+<thead>
+<tr><th>Merchant</th><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th></tr>
+</thead>
+<tbody>
+<tr><td>Coastline</td><td>{NICN}</td><td>{Amount}</td><td>{Region}</td><td>{Processor}</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>Then Verify the response is as follows</p>
+<table>
+<thead>
+<tr><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th></tr>
+</thead>
+<tbody>
+<tr><td>{HttpStatusCode}</td><td>{TransactionFee}</td><td>{Fee}</td><td>{Sid}</td><td>{Message}</td></tr>
+</tbody>
+</table>
+</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>DiscoverCore</td><td>108.00</td><td>Chargeable state</td><td>Paysafe9909</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>DiscoverRewards</td><td>108.00</td><td>Chargeable state</td><td>Paysafe9909</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>DiscoverCore</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe9909</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>DiscoverRewards</td><td>108.00</td><td>Non-Chargeable state</td><td>Paysafe9909</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="c2df7c2365b12687558590ab05c0a2cbd023b73d19fafe1778f5f1ac41b89f0e">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                9 - Verify Transaction Fee API call with different types of DISCOVER with Titanium4994 processor
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="scenario-report-badges">
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='06027103c50e1da386bf1aab12eb4af94f0fd80f74d9e922499aa09d2611441c.html' class='badge more-details'>Test Results</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>When I call Transaction Fee API with the following data</p>
+<table>
+<thead>
+<tr><th>Merchant</th><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th></tr>
+</thead>
+<tbody>
+<tr><td>Coastline</td><td>{NICN}</td><td>{Amount}</td><td>{Region}</td><td>{Processor}</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>Then Verify the response is as follows</p>
+<table>
+<thead>
+<tr><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th></tr>
+</thead>
+<tbody>
+<tr><td>{HttpStatusCode}</td><td>{TransactionFee}</td><td>{Fee}</td><td>{Sid}</td><td>{Message}</td></tr>
+</tbody>
+</table>
+</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>DiscoverCore</td><td>108.00</td><td>Chargeable state</td><td>Titanium4994</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>DiscoverRewards</td><td>108.00</td><td>Chargeable state</td><td>Titanium4994</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>DiscoverCore</td><td>108.00</td><td>Non-Chargeable state</td><td>Titanium4994</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>DiscoverRewards</td><td>108.00</td><td>Non-Chargeable state</td><td>Titanium4994</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="703093b450741794a2a8f139906eaf25bc37f9a9efa26d192dee6cc76cc1d880">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                10 - Verify Transaction Fee API call with different types of AMEX with PAYSAFE7861 processor
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="scenario-report-badges">
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='a468c8dec369466b6852ceebbc15a5ab1539aa4944e1d7bf9653acdf39d61178.html' class='badge more-details'>Test Results</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>When I call Transaction Fee API with the following data</p>
+<table>
+<thead>
+<tr><th>Merchant</th><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th></tr>
+</thead>
+<tbody>
+<tr><td>Coastline</td><td>{NICN}</td><td>{Amount}</td><td>{Region}</td><td>{Processor}</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>Then Verify the response is as follows</p>
+<table>
+<thead>
+<tr><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th></tr>
+</thead>
+<tbody>
+<tr><td>{HttpStatusCode}</td><td>{TransactionFee}</td><td>{Fee}</td><td>{Sid}</td><td>{Message}</td></tr>
+</tbody>
+</table>
+</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>AmexStandard</td><td>80.00</td><td>Chargeable state</td><td>Paysafe7861</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>AmexStandard</td><td>80.00</td><td>Non-Chargeable state</td><td>Paysafe7861</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="5e20100459d07db85cf1c3f8efba2ceb2c4e8b5aead311626b64be946d9a8257">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                11 - Verify Transaction Fee API call with different types of AMEX with PAYSAFE9909 processor
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="scenario-report-badges">
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='7c7d3ddcf381b823d3742991fad2eb56d4a485eaf62e4b008ae58c40629b7e1c.html' class='badge more-details'>Test Results</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>When I call Transaction Fee API with the following data</p>
+<table>
+<thead>
+<tr><th>Merchant</th><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th></tr>
+</thead>
+<tbody>
+<tr><td>Coastline</td><td>{NICN}</td><td>{Amount}</td><td>{Region}</td><td>{Processor}</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>Then Verify the response is as follows</p>
+<table>
+<thead>
+<tr><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th></tr>
+</thead>
+<tbody>
+<tr><td>{HttpStatusCode}</td><td>{TransactionFee}</td><td>{Fee}</td><td>{Sid}</td><td>{Message}</td></tr>
+</tbody>
+</table>
+</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>AmexStandard</td><td>80.00</td><td>Chargeable state</td><td>Paysafe9909</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>AmexStandard</td><td>80.00</td><td>Non-Chargeable state</td><td>Paysafe9909</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="76f3ec9b850f34ecc33fef44da2cb29b1a9f42f6c34bac3caa345c000c889f41">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                12 - Verify Transaction Fee API call with different types of AMEX with Titanium4994 processor
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="scenario-report-badges">
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='244dcb872878f110d9648f9aa6386c5445bd90612deb67b3f41cce43cd6b0fb9.html' class='badge more-details'>Test Results</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>When I call Transaction Fee API with the following data</p>
+<table>
+<thead>
+<tr><th>Merchant</th><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th></tr>
+</thead>
+<tbody>
+<tr><td>Coastline</td><td>{NICN}</td><td>{Amount}</td><td>{Region}</td><td>{Processor}</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>Then Verify the response is as follows</p>
+<table>
+<thead>
+<tr><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th></tr>
+</thead>
+<tbody>
+<tr><td>{HttpStatusCode}</td><td>{TransactionFee}</td><td>{Fee}</td><td>{Sid}</td><td>{Message}</td></tr>
+</tbody>
+</table>
+</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>NICN</th><th>Amount</th><th>Region</th><th>Processor</th><th>HttpStatusCode</th><th>TransactionFee</th><th>Fee</th><th>Sid</th><th>Message</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>AmexStandard</td><td>80.00</td><td>Chargeable state</td><td>Titanium4994</td><td>201</td><td>Interchange:FixedFee:GatewayMarkup:NetworkFee:SurchxPercentage</td><td>SurchxPercentage</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+<tr><td>AmexStandard</td><td>80.00</td><td>Non-Chargeable state</td><td>Titanium4994</td><td>201</td><td>0.00</td><td>0.00</td><td>NotNull</td><td>ok</td><td><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="results" class="tab-pane fade">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+
+                                            <div style="width:300px;" class="chart-container automated-and-manual-results">
+                                                <div class="ct-chart ct-square"></div>
+                                            </div>
+                                            <script>
+
+                                                var labels = ['100%', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+                                                // Our series array that contains series objects or in this case series data arrays
+
+                                                var series = [{meta: 'Passing tests (automated)', value: 72}, {meta: 'Passing tests (manual)', value: 0}, {meta: 'Pending tests (automated)', value: 0}, {meta: 'Pending tests (manual)', value: 0}, {meta: 'Ignored tests (automated)', value: 0}, {meta: 'Ignored tests (manual)', value: 0}, {meta: 'Skipped tests (automated)', value: 0}, {meta: 'Skipped tests (manual)', value: 0}, {meta: 'Failing tests (automated)', value: 0}, {meta: 'Failing tests (manual)', value: 0}, {meta: 'Broken tests (automated)', value: 0}, {meta: 'Broken tests (manual)', value: 0}, {meta: 'Compromised tests (automated)', value: 0}, {meta: 'Compromised tests (manual)', value: 0}];
+
+                                                // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
+                                                // as you saw in the previous example
+                                                var options = {
+                                                    width: 350,
+                                                    height: 300
+                                                };
+
+                                                $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                                                    new Chartist.Pie('.ct-chart', {
+                                                        series: series,
+                                                        labels: labels,
+                                                    }, {
+                                                        donut: true,
+                                                        donutWidth: 60,
+                                                        donutSolid: true,
+                                                        startAngle: 270,
+                                                        showLabel: true
+                                                    }, options);
+                                                });
+
+                                            </script>
+                                        </div>
+                                        <div class="col-sm-8">
+
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">Scenario Results (including rows of test data)</th>
+                                                <th scope="col" colspan="2" class="automated-stats">
+                                                    Automated
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                                    <td class="aggregate-result-count">
+                                                                        <a href="bffdcdc78e635ba1fae561b17c7740b6bbd9453877fffc9deffee8c4a768fa83.html"><i
+                                                                                class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing</a>
+                                                                    </td>
+                                                <td class="automated-stats">72</td>
+                                                <td class="automated-stats">100%</td>
+                                            </tr>
+                                            <tr>
+                                                                    <td class="aggregate-result-count"><i
+                                                                            class='fa fa-stop-circle-o pending-icon'></i>&nbsp;Pending
+                                                                    </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                        class='fa fa-ban ignored-icon'></i>&nbsp;Ignored
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                        class='fa fa-fast-forward skip-icon'></i>&nbsp;Skipped
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr>
+                                                                    <td colspan="3"><a href="79fe4b6adc6760e57b8346bcbad63a21e29be5c5a2c4deb749904087b119af9a.html"><i
+                                                                            class='fa fa-times failure-icon'></i>&nbsp;<em>Unsuccessful</em></a>
+                                                                    </td>
+                                            </tr>
+
+                                            <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-times-circle failure-icon'></i>&nbsp;Failed
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-exclamation-triangle error-icon'></i>&nbsp;Broken
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-chain-broken compromised-icon'></i>&nbsp;Compromised
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr class="summary-stats">
+                                                <td class="aggregate-result-count">Total</td>
+                                                <td class="automated-stats">72</td>
+                                                <td class="automated-stats"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table class="table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Execution Time</th>
+                                                        <th>Clock Time</th>
+                                                        <th>Fastest Test</th>
+                                                        <th>Slowest Test</th>
+                                                        <th>Average Execution Time</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td> 3m 18s</td>
+                                                        <td> 3m 22s</td>
+                                                        <td>707ms</td>
+                                                        <td>49s</td>
+                                                        <td>16s</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3><i class="fas fa-cogs"></i> Automated Tests</h3>
+
+                                            <table class="scenario-result-table table" id="scenario-results">
+                                                <thead>
+                                                <tr>
+                                                    <th class="test-name-column">Scenario</th>
+                                                    <th>Steps</th>
+                                                    <th>Start Time</th>
+                                                    <th>Duration</th>
+                                                    <th>Result</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="15e6dd80e12bbc6e1c6342972647824823212bdedf7af68906c939b576bfe450.html">1 - Verify Transaction Fee API call with different types of VISA cards with Paysafe7861 processor</a>
+                                                               (10 examples)
+                                                    </td>
+                                                    <td>2</td>
+                                                    <td>11:33:20</td>
+                                                    <td>00:49</td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="3d5d504627a14d137c860dc96c5a248a74b84821a01cb49844038f9dede205f6.html">2 - Verify Transaction Fee API call with different types of VISA cards with Paysafe9909 processor</a>
+                                                               (10 examples)
+                                                    </td>
+                                                    <td>2</td>
+                                                    <td>11:34:13</td>
+                                                    <td>00:26</td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="3b6cf8145929aa14260b5e36d683673c40d2cf3ec5a10006718c7fb8cfacef82.html">3 - Verify Transaction Fee API call with different types of VISA cards with Titanium4994 processor</a>
+                                                               (10 examples)
+                                                    </td>
+                                                    <td>2</td>
+                                                    <td>11:34:39</td>
+                                                    <td>00:48</td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="5815462ec0aacca50407b927bfcc2edbe00bebafd0e21198a7709d153e9d1247.html">4 - Verify Transaction Fee API call with different types of MASTERCARD with PAYSAFE7861 processor</a>
+                                                               (8 examples)
+                                                    </td>
+                                                    <td>2</td>
+                                                    <td>11:35:27</td>
+                                                    <td>00:09</td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="34bfba948a142599b6fca5718efb43db960db12af678cf9cb94224721bf234a4.html">5 - Verify Transaction Fee API call with different types of MASTERCARD with PAYSAFE9909 processor</a>
+                                                               (8 examples)
+                                                    </td>
+                                                    <td>2</td>
+                                                    <td>11:35:37</td>
+                                                    <td>00:30</td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="714cdcc7f1792f28a8cc211688dff4770ee59a4f026c589d3bab1cf9349de05f.html">6 - Verify Transaction Fee API call with different types of MASTERCARD with Titanium4994 processor</a>
+                                                               (8 examples)
+                                                    </td>
+                                                    <td>2</td>
+                                                    <td>11:36:07</td>
+                                                    <td>00:11</td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="8129b1bf99fd6c1b7a06c5515a23d890d61441a557b28d40d06183f608fb6c20.html">7 - Verify Transaction Fee API call with different types of DISCOVER with PAYSAFE7861 processor</a>
+                                                               (4 examples)
+                                                    </td>
+                                                    <td>2</td>
+                                                    <td>11:36:19</td>
+                                                    <td>00:09</td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="3eb8fde209a4d2833e2662fa74b84947302bd568184ee079306d71b5b8efc090.html">8 - Verify Transaction Fee API call with different types of DISCOVER with PAYSAFE9909 processor</a>
+                                                               (4 examples)
+                                                    </td>
+                                                    <td>2</td>
+                                                    <td>11:36:29</td>
+                                                    <td>00:02</td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="06027103c50e1da386bf1aab12eb4af94f0fd80f74d9e922499aa09d2611441c.html">9 - Verify Transaction Fee API call with different types of DISCOVER with Titanium4994 processor</a>
+                                                               (4 examples)
+                                                    </td>
+                                                    <td>2</td>
+                                                    <td>11:36:31</td>
+                                                    <td>00:08</td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="a468c8dec369466b6852ceebbc15a5ab1539aa4944e1d7bf9653acdf39d61178.html">10 - Verify Transaction Fee API call with different types of AMEX with PAYSAFE7861 processor</a>
+                                                               (2 examples)
+                                                    </td>
+                                                    <td>2</td>
+                                                    <td>11:36:39</td>
+                                                    <td>00:02</td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="7c7d3ddcf381b823d3742991fad2eb56d4a485eaf62e4b008ae58c40629b7e1c.html">11 - Verify Transaction Fee API call with different types of AMEX with PAYSAFE9909 processor</a>
+                                                               (2 examples)
+                                                    </td>
+                                                    <td>2</td>
+                                                    <td>11:36:41</td>
+                                                    <td>00:00</td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="244dcb872878f110d9648f9aa6386c5445bd90612deb67b3f41cce43cd6b0fb9.html">12 - Verify Transaction Fee API call with different types of AMEX with Titanium4994 processor</a>
+                                                               (2 examples)
+                                                    </td>
+                                                    <td>2</td>
+                                                    <td>11:36:42</td>
+                                                    <td>00:00</td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3><i class="fas fa-edit"></i> Manual Tests</h3>
+
+                                                No manual tests were recorded
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="version">Serenity BDD version 2.0.30</span>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>

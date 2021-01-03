@@ -1,0 +1,3 @@
+com\surchx\transactionfeeapi\testsuite\AcceptanceTestSuite.class
+com\surchx\transactionfeeapi\steps\TransactionFeeApiSteps.class
+com\surchx\transactionfeeapi\stepdefinitions\TransactionFeeStepDefinitions.class
